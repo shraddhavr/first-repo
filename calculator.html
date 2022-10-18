@@ -2,26 +2,41 @@
 <html>
     <head>
         <title>Calculator</title>
+        <script>
+            function pressButton(buttonValue){
+                let calText = document.querySelector(".input-screen").value + buttonValue +" ";
+                 document.querySelector(".input-screen").value=calText; 
+            }
+            function calculate(){
+                let calText = document.querySelector(".input-screen").value;
+                document.querySelector(".input-screen").value = eval(calText);
+            }
+            function clearScreen(){
+                document.querySelector(".input-screen").value =" ";
+            }
+            
+        </script>
         <style>
 .container{
     width:350px;
-    background-color:#ffcccc;
+    background-color:#2e2a2a;
     padding:20px;
     border-radius:10px;
-    border:2px solid lightseagreen;
+    border:2px solid rgb(14, 14, 14);
     box-shadow:0px 3px 5px gray;
 }
 .row{
+    
     display:flex;
     flex-direction:row;
     justify-content:space-between;
     margin-top:10px;
 }
-.btn{
+.btn{ 
     width:50px;
     height:40px;
     font-size:20px;
-    border:2px solid grey;
+    border:2px solid black;
     border-radius:5px;
 }
 .btn:hover{
@@ -38,48 +53,52 @@
     height:50px;
     margin-bottom:10px;
     font-size:50px;
-    background-color:#88c9c9;
+    background-color:#eff9f9;
 
 }
 .brand{
-    color:red;
+
+    color:white;
 }
+
+
 
         </style>
     </head>
     <body>
          <div class="container">
-            <span class="brand">Shri</span>
-            <div class="row">
+            <div class="brand">Shri</div>
+            
+<div class="row">
                 <input type="text" id="input" class="input-screen">
             </div>
 <div class="row">
-
-    <button class="btn">7</button>
-    <button class="btn">8</button>
-    <button class="btn">9</button>
-    <button class="btn bg-tomato">÷</button>
+    
+    <button class="btn" onclick="pressButton(7)">7</button>
+    <button class="btn" onclick="pressButton(8)">8</button>
+    <button class="btn" onclick="pressButton(9)">9</button>
+    <button class="btn bg-tomato"onclick="pressButton('/')">÷</button>
 </div>
 <div class="row">
     
-    <button class="btn">4</button>
-    <button class="btn">5</button>
-    <button class="btn">6</button>
-    <button class="btn bg-tomato">x</button>
+    <button class="btn" onclick="pressButton(4)">4</button>
+    <button class="btn" onclick="pressButton(5)">5</button>
+    <button class="btn" onclick="pressButton(6)">6</button>
+    <button class="btn bg-tomato"  onclick="pressButton('*')">x</button>
 </div>
 <div class="row">
     
-    <button class="btn">1</button>
-    <button class="btn">2</button>
-    <button class="btn">3</button>
-    <button class="btn bg-tomato">-</button>
+    <button class="btn" onclick="pressButton(1)">1</button>
+    <button class="btn" onclick="pressButton(2)">2</button>
+    <button class="btn" onclick="pressButton(3)">3</button>
+    <button class="btn bg-tomato"  onclick="pressButton('-')">-</button>
 </div>
 <div class="row">
     
-    <button class="btn">0</button>
-    <button class="btn bg-tomato">.</button>
-    <button class="btn bg-tomato">+</button>
-    <button class="btn bg-tomato">=</button>
+    <button class="btn" onclick="pressButton(0)">0</button>
+    <button class="btn bg-tomato"  onclick="clearScreen()">CE</button>
+    <button class="btn bg-tomato"  onclick="pressButton('+')">+</button>
+    <button class="btn bg-tomato" onclick="calculate()">=</button>
 </div>
         </div>
     </body>
